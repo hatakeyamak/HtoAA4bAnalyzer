@@ -178,15 +178,19 @@ void HtoaaAna() {
     for (unsigned int bb = 0; bb < nGenPart; bb++) {
       
       if (abs(GenPart_pdgId[bb])==25){
-      std::cout << GenPart_pt[bb] << " " 
-		<< GenPart_eta[bb] << " " 
-		<< GenPart_phi[bb] << " " 
-		<< GenPart_status[bb] << " " 
-		<< GenPart_statusFlags[bb] << " " 
-		<< GenPart_pdgId[bb] << std::endl;
-      std::cout << (GenPart_statusFlags[bb] & 1) << std::endl;
-      std::cout << (GenPart_statusFlags[bb] & (1U << 12)) << std::endl;      
-      std::cout << (GenPart_statusFlags[bb] & (1U << 13)) << std::endl;      
+	/*
+	  std::cout << GenPart_pt[bb] << " " 
+	  << GenPart_eta[bb] << " " 
+	  << GenPart_phi[bb] << " " 
+	  << GenPart_status[bb] << " " 
+	  << GenPart_statusFlags[bb] << " " 
+	  << GenPart_pdgId[bb] << std::endl;
+	*/
+	if (GenPart_status[bb]==22) isFirst=bb;
+	if (GenPart_status[bb]==62) isLast=bb;
+	//std::cout << (GenPart_statusFlags[bb] & 1) << std::endl;
+	//std::cout << (GenPart_statusFlags[bb] & (1U << 12)) << std::endl;      
+	//std::cout << (GenPart_statusFlags[bb] & (1U << 13)) << std::endl;      
       }
 
       // https://cmssdt.cern.ch/lxr/source/DataFormats/HepMCCandidate/interface/GenStatusFlags.h?v=CMSSW_16_0_X_2025-12-02-2300#0030
